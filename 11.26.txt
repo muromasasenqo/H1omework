@@ -1,0 +1,129 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp25
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string name1 = AskName();
+            Console.WriteLine($"privet perviy {name1}");
+            int age1 = AskAge();
+            Console.WriteLine($"vozrast {name1} {age1}");
+            string name2 = AskName();
+            Console.WriteLine($"privet vtoroy {name2}");
+            int age2 = AskAge();
+            Console.WriteLine($"vozrast {name2} {age2}");
+            Console.WriteLine("kto starwe?");
+            string starwiy = Console.ReadLine();
+            int c;
+            int b;
+
+            if (starwiy == name1 && age1 > age2)
+            {
+                 c = age1 - age2;
+                Console.WriteLine($"vse okay {name1} starwe na {c} let"); 
+            }
+            
+            
+            else if (starwiy == name1 && age1 < age2)
+            {
+                c = age2 - age1;
+                Console.WriteLine($"ti ne prav {name1} mladwe na {c} let"); 
+            }
+
+
+            else if (starwiy == name2 && age2 > age1)
+            {
+                b = age2 - age1;
+                Console.WriteLine($"vse okay {name2} starwe na {b} let");
+            }
+
+            else if (starwiy == name2 && age2 < age1)
+            {
+                b = age1 - age2;
+                Console.WriteLine($"ti ne prav { name2} mladwe na {b} let");
+            }
+
+
+
+            Console.ReadKey();
+
+        }
+         static string AskName()
+        {
+            int test = 0;
+            Console.WriteLine("vvedite imya?");
+            string name = Console.ReadLine();
+            
+            
+
+            while (Int32.TryParse(name, out test) || name.Trim().Length == 0)
+            {
+                Console.WriteLine("vvedite pravilnoe imya");
+                name = Console.ReadLine();
+            }
+                   
+                
+                
+                    
+                
+            
+            return name;
+
+
+
+
+
+
+        }
+        static int AskAge()
+        {
+            Console.WriteLine("vvedite vozrast");
+            int age = Convert.ToInt32(Console.ReadLine());
+            while (age <= 0)
+            {
+                Console.WriteLine(" vvedi pojaluysta pravilniy vozrast?");
+
+                age = Convert.ToInt32(Console.ReadLine());
+                
+            }
+
+            return age;
+
+
+
+
+        }
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+}
